@@ -1,0 +1,132 @@
+#EXTM3U
+#EXTINF:1,LBC
+http://media-the.musicradio.com:80/LBCUK
+
+#EXTINF:2,BBC Radio 1
+http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio1_mf_p
+
+#EXTINF:3,BBC Radio 2
+http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio2_mf_p
+
+#EXTINF:4,BBC Radio 4 FM
+http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio4fm_mf_p
+
+#EXTINF:5,BBC Radio 4 Extra
+http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio4extra_mf_q
+
+#EXTINF:6,BBC Radio 5 Live UK
+http://open.live.bbc.co.uk/mediaselector/5/redir/version/2.0/mediaset/http-icy-mp3-a-stream/proto/http/vpid/bbc_radio_five_live
+
+#EXTINF:7,BBC Radio 5 Live Sports Extra UK
+http://open.live.bbc.co.uk/mediaselector/5/redir/version/2.0/mediaset/http-icy-mp3-a-stream/proto/http/vpid/bbc_radio_five_live_sports_extra
+
+#EXTINF:8,BBC 6 Music
+http://bbcmedia.ic.llnwd.net/stream/bbcmedia_6music_mf_p
+
+#EXTINF:9,Forth 1
+http://tx.whatson.com/icecast.php?i=forth1low.mp3
+
+#EXTINF:10,Rock FM
+http://tx.whatson.com/icecast.php?i=rocklow.mp3
+
+#EXTINF:11,BBC Radio Cumbria
+http://bbcmedia.ic.llnwd.net/stream/bbcmedia_lrcumbria_mf_p
+
+#EXTINF:12,BBC Radio Lancashire
+http://bbcmedia.ic.llnwd.net/stream/bbcmedia_lrlancs_mf_p
+
+#EXTINF:13,BBC Radio Manchester
+http://bbcmedia.ic.llnwd.net/stream/bbcmedia_lrmanc_mf_p
+
+#EXTINF:14,Bay Trust Radio
+http://live.audiospace.co:80/baytrustradio
+
+#EXTINF:15,Cando FM
+http://aries.streaming.zfast.co.uk:8130/stream.mp3
+
+#EXTINF:16,The Bay
+http://media-the.musicradio.com:80/HeartNorthLancsCumbria
+
+#EXTINF:17,Lakeland Radio
+http://media-ice.musicradio.com:80/SmoothLakeDistrict
+
+#EXTINF:18,Virgin Radio UK
+http://radio.virginradio.co.uk/stream
+
+#EXTINF:19,talkRADIO
+http://radio.talkradio.co.uk/stream
+
+#EXTINF:20,capital UK
+http://vis.media-ice.musicradio.com/CapitalUKMP3
+
+#EXTINF:21,Radio X UK
+http://vis.media-ice.musicradio.com/RadioXUKMP3
+
+#EXTINF:22,Heart UK
+http://vis.media-ice.musicradio.com/HeartUKMP3
+
+#EXTINF:23,Smooth UK
+http://media-ice.musicradio.com/SmoothUKMP3
+
+#EXTINF:24,Classic FM
+http://media-ice.musicradio.com/ClassicFMMP3
+
+#EXTINF:25,Gold London
+http://media-ice.musicradio.com/GoldMP3
+
+#EXTINF:26,KISS FM UK
+http://tx.whatson.com/icecast.php?i=kissnationallow.mp3
+
+#EXTINF:27,KISS FRESH
+http://tx.whatson.com/icecast.php?i=kissfreshlow.mp3
+
+#EXTINF:28,KISSTORY
+http://tx.whatson.com/icecast.php?i=kisstorylow.mp3
+
+#EXTINF:29,Absolute Radio
+http://player.absoluteradio.co.uk/tunein.php?i=arlow.mp3
+
+#EXTINF:30,Absolute Classic Rock
+http://player.absoluteradio.co.uk/tunein.php?i=aclow.mp3
+
+#EXTINF:31,Absolute Radio 60s
+http://player.absoluteradio.co.uk/tunein.php?i=a6low.mp3
+
+#EXTINF:32,Absolute Radio 70s
+http://player.absoluteradio.co.uk/tunein.php?i=a7low.mp3
+
+#EXTINF:33,Absolute Radio 80s
+http://player.absoluteradio.co.uk/tunein.php?i=a8low.mp3
+
+#EXTINF:34,Absolute Radio 90s
+http://live-absolute.sharp-stream.com/absolute90s.mp3
+
+#EXTINF:35,Absolute Radio 00s
+http://player.absoluteradio.co.uk/tunein.php?i=a0low.mp3
+
+#EXTINF:36,Magic
+http://tx.whatson.com/icecast.php?i=magic1054low.mp3
+
+#EXTINF:37,Magic Chilled
+http://tx.whatson.com/icecast.php?i=magicchilledlow.mp3
+
+#EXTINF:38,heat Radio
+http://tx.whatson.com/icecast.php?i=heatlow.mp3
+
+#EXTINF:39,Kerrang! Radio
+http://tx.whatson.com/icecast.php?i=kerranglow.mp3
+
+#EXTINF:40,The Hits
+http://tx.whatson.com/icecast.php?i=hitslow.mp3
+
+#EXTINF:41,Key 103
+http://tx.whatson.com/icecast.php?i=keylow.mp3
+
+#EXTINF:42,Key 2
+http://tx.whatson.com/icecast.php?i=magic1152mlow.mp3
+
+#EXTINF:43,Planet Rock
+http://tx.whatson.com/icecast.php?i=planetrocklow.mp3
+
+#EXTINF:44,BBC Radio 5 Live
+http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio5live_mf_p
