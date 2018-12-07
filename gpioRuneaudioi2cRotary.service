@@ -1,0 +1,23 @@
+# Store in - /usr/lib/systemd/system/
+# Script name - gpioRuneaudioi2cRotary.service
+
+[Unit]
+Description=i2c Runeaudio button control
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python2 /home/myapp/buttons/i2c_rotary_volume.py
+ExecReload=/usr/bin/kill -HUP $MAINPID
+KillMode=process
+Restart=always
+RestartSec=0
+StartLimitInterval=30000
+StartLimitBurst=20000
+
+[Install]
+WantedBy=multi-user.target
+
+
+# Notes
+# RestartSec=1   # set to 1sec, 
+# https://www.freedesktop.org/software/systemd/man/systemd.service.html

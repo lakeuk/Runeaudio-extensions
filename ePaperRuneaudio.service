@@ -1,0 +1,23 @@
+# Store in - /usr/lib/systemd/system/
+# Script name - ePaperRuneaudioi2c.service
+
+[Unit]
+Description=ePaper display whats play
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python2 /home/myapp/epaper/epaper_mpd.py
+ExecReload=/usr/bin/kill -HUP $MAINPID
+KillMode=process
+Restart=always
+RestartSec=0
+StartLimitInterval=30000
+StartLimitBurst=20000
+
+[Install]
+WantedBy=multi-user.target
+
+
+# Notes
+# RestartSec=1   # set to 1sec, 
+# https://www.freedesktop.org/software/systemd/man/systemd.service.html
