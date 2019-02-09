@@ -5,6 +5,8 @@
 import os
 import sys
 import time
+import subprocess
+import re
 
 from mpd import (MPDClient, CommandError)
 from socket import error as SocketError
@@ -115,7 +117,14 @@ def main():
             time.sleep(0.2)        
 
             try:
-                station = client.currentsong()['name']
+                #station = client.currentsong()['name']
+                station_url = subprocess.check_output("mpc -f %file% current", stderr=subprocess.STDOUT, shell=True) # http://mystreamurl/;?station_name=MY_STATION_NAME
+		station = re.findall(r'\?station_name=(.*)', station_url)  # ['MY_STATION_NAME']
+		if len(station) > 0:
+			station = station[0].replace('_', ' ')  # MY STATION NAME
+		else:
+			station = ''
+		#print station
             except KeyError:
                 station = ''
 
@@ -137,15 +146,15 @@ def main():
             if(station != ''):    # webradio
                 #print('Station = ' + station)
                 if laststation != station:
-                  print(station)
+                  #print(station)
                   if station in arrbmp:
-                    print('logo available')
+                    print(station + ' - logo available')
                     #drawbmpPart('blank')
 		    epaperReset()                    
                     drawbmpPart(station)  
                     #drawbmpFull(station)                    
                   else:
-                    print('no logo available')                  
+                    print(station + ' - no logo available')                  
                     #drawbmpPart('blank')
  		    epaperReset()                    
                     drawbmpPart('default')
@@ -155,13 +164,13 @@ def main():
                   laststation = station
             	elif(laststate == 'stop' and state == 'play'):
             	  if station in arrbmp:
-                    print('logo available - stop-play')
+                    print(station + ' - logo available - stop-play')
                     #drawbmpPart('blank')
                     epaperReset()
                     drawbmpPart(station)   
 		    #drawbmpFull(station)
                   else:
-                    print('no logo available - stop-play')                  
+                    print(station + ' - no logo available - stop-play')                  
                     #drawbmpPart('blank')
                     epaperReset()
                     drawbmpPart('default')
@@ -178,9 +187,6 @@ def main():
                 drawbmpPart('blank')                
                 #drawbmpPart('default')	
                 laststate = 'stop'
-                
-		
-		
 		
 #        if (state[0] == 'playlist'):
 #            print('the current playlist has been modified')
