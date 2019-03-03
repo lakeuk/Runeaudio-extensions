@@ -130,3 +130,6 @@ http://tx.planetradio.co.uk/icecast.php?i=planetrock.aac?station_name=Planet_Roc
 
 #EXTINF:44,BBC Radio 5 Live
 http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio5live_mf_p?station_name=BBC_Radio_5_Live
+
+#EXTINF:45,Scala Radio
+http://tx.planetradio.co.uk/icecast.php?i=scala.aac?station_name=Scala_Radio
