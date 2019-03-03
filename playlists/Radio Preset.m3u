@@ -133,3 +133,42 @@ http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio5live_mf_p?station_name=BBC_Ra
 
 #EXTINF:45,Scala Radio
 http://tx.planetradio.co.uk/icecast.php?i=scala.aac?station_name=Scala_Radio
+
+#EXTINF:46,BBC Radio 1	
+http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_med/llnw/bbc_radio_one.m3u8?station_name=BBC_Radio_1
+
+#EXTINF:47,BBC Radio 2	
+http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_med/llnw/bbc_radio_two.m3u8?station_name=BBC_Radio_2
+
+#EXTINF:48,BBC Radio 4 (FM)	
+http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_med/llnw/bbc_radio_fourfm.m3u8?station_name=BBC_Radio_4_FM
+
+#EXTINF:49,BBC Radio 4 Extra	
+http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_med/llnw/bbc_radio_four_extra.m3u8?station_name=BBC_Radio_4_Extra
+
+#EXTINF:50,BBC 5 Live
+http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_med/llnw/bbc_radio_five_live.m3u8?station_name=BBC_Radio_5_Live_UK
+
+#EXTINF:51,BBC 5 live sports extra	
+http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_med/llnw/bbc_radio_five_live_sports_extra.m3u8?station_name=BBC_Radio_5_Live_Sports_Extra_UK
+
+#EXTINF:52,BBC 6 Music
+http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_med/llnw/bbc_6music.m3u8?station_name=BBC_6_Music
+
+#EXTINF:53,BBC Radio Cumbria
+http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_med/llnw/bbc_radio_cumbria.m3u8?station_name=BBC_Radio_Cumbria
+
+#EXTINF:54,BBC Radio Lancashire	
+http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_med/llnw/bbc_radio_lancashire.m3u8?station_name=BBC_Radio_Lancashire
+
+#EXTINF:55,BBC Radio Manchester	
+http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_med/llnw/bbc_radio_manchester.m3u8?station_name=BBC_Radio_Manchester
+
+#EXTINF:56,BBC 1Xtra
+http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_med/llnw/bbc_1xtra.m3u8?station_name=BBC_Radio_1Xtra
+
+#EXTINF:57,BBC Radio 3	
+http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_med/llnw/bbc_radio_three.m3u8?station_name=BBC_Radio_3
+
+#EXTINF:58,BBC Radio 4 (LW)	
+http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_med/llnw/bbc_radio_fourlw.m3u8?station_name=BBC_Radio_4_LW
