@@ -27,32 +27,28 @@ for i, item in enumerate(arrbmp):
 def epaperReset():
   epd = epd2in9.EPD()
   epd.init(epd.lut_full_update)
+  epd.Clear(0xFF)  
   # For simplicity, the arguments are explicit numerical coordinates
   image = Image.new('1', (epd2in9.EPD_WIDTH, epd2in9.EPD_HEIGHT), 255)  # 255: clear the frame
-  epd.set_frame_memory(image, 0, 0)
-  epd.display_frame()
-  epd.set_frame_memory(image, 0, 0)
-  epd.display_frame()
+  epd.display(epd.getbuffer(image)) 
 
 def drawbmpFull(imagename):
   epd = epd2in9.EPD()
-  epd.init(epd.lut_full_update)  
+  epd.init(epd.lut_full_update) 
+  epd.Clear(0xFF)  
   image = Image.open(pathbmp + imagename +'.bmp')
   image = image.transpose(Image.ROTATE_90)  
-  epd.clear_frame_memory(0xFF)
-  epd.set_frame_memory(image, 0, 0)
-  epd.display_frame() 
+  epd.display(epd.getbuffer(image))  
+  epd.sleep()
 
 def drawbmpPart(imagename):
   epd = epd2in9.EPD()
   epd.init(epd.lut_partial_update) 
+  epd.Clear(0xFF)  
   image = Image.open(pathbmp + imagename + '.bmp')
   image = image.transpose(Image.ROTATE_90)  
-  epd.clear_frame_memory(0xFF)  
-  epd.set_frame_memory(image, 0, 0)
-  epd.display_frame()
-  epd.set_frame_memory(image, 0, 0)
-  epd.display_frame()
+  epd.display(epd.getbuffer(image))   
+  epd.sleep()
 ## epaper functions end
 
 HOST = 'localhost'
@@ -112,6 +108,7 @@ def main():
 
         if (state[0] == 'mixer'):
             print('Volume = ' + client.status()['volume'])
+            time.sleep(0.2)
 
         if (state[0] == 'player'):
             time.sleep(0.2)        
