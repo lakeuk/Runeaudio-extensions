@@ -84,6 +84,7 @@ class EPD:
         self.reset_pin = epdconfig.RST_PIN
         self.dc_pin = epdconfig.DC_PIN
         self.busy_pin = epdconfig.BUSY_PIN
+        self.cs_pin = epdconfig.CS_PIN
         self.width = EPD_WIDTH
         self.height = EPD_HEIGHT
 
@@ -111,12 +112,16 @@ class EPD:
         epdconfig.delay_ms(200)   
 
     def send_command(self, command):
+        epdconfig.digital_write(self.cs_pin, GPIO.LOW)
         epdconfig.digital_write(self.dc_pin, GPIO.LOW)
         epdconfig.spi_writebyte([command])
+        epdconfig.digital_write(self.cs_pin, GPIO.HIGH)
 
     def send_data(self, data):
+        epdconfig.digital_write(self.cs_pin, GPIO.LOW)
         epdconfig.digital_write(self.dc_pin, GPIO.HIGH)
         epdconfig.spi_writebyte([data])
+        epdconfig.digital_write(self.cs_pin, GPIO.HIGH)
         
     def wait_until_idle(self):
         while(epdconfig.digital_read(self.busy_pin) == 1):      # 0: idle, 1: busy
@@ -170,6 +175,8 @@ class EPD:
         self.send_data(0x1A)                     # 4 dummy lines per gate
         self.send_command(SET_GATE_TIME)
         self.send_data(0x08)                     # 2us per line
+        self.send_command(BORDER_WAVEFORM_CONTROL)
+        self.send_data(0x03)
         self.send_command(DATA_ENTRY_MODE_SETTING)
         self.send_data(0x03)                     # X increment Y increment
         
