@@ -136,3 +136,12 @@ http://tx.planetradio.co.uk/icecast.php?i=scala.aac?station_name=Scala_Radio
 
 #EXTINF:46,Country Hits UK	
 http://tx.planetradio.co.uk/icecast.php?i=countryhits.mp3?station_name=Country_Hits_UK
+
+#EXTINF:46,Country Hits UK	
+http://edge-baueral-01-cr.sharp-stream.com/countryhits.aac?station_name=Country_Hits_UK
+
+#EXTINF:47,Radio Paradise
+http://stream.radioparadise.com/mp3-192?station_name=Radio_Paradise
+
+#EXTINF:48,Lake District Radio	
+https://streamer.radio.co:80/sf97bc756a/listen?station_name=Lake_District_Radio
