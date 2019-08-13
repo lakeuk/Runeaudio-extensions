@@ -61,13 +61,13 @@ while True:
   else: BPIN = 0  
   
   #if ([clkState,dtState] == [16,32]):
-  #  print "HIGH HIGH" + " " + str(clkState) + " " + str(dtState)
+  #  print("HIGH HIGH" + " " + str(clkState) + " " + str(dtState))
   #elif ([clkState,dtState] == [0,32]):
-  #  print "    LOW HIGH" + " " + str(clkState) + " " + str(dtState)
+  #  print("    LOW HIGH" + " " + str(clkState) + " " + str(dtState))
   #elif ([clkState,dtState] == [0,0]):
-  #  print "        LOW LOW" + " " + str(clkState) + " " + str(dtState)
+  #  print("        LOW LOW" + " " + str(clkState) + " " + str(dtState))
   #elif ([clkState,dtState] == [16,0]):
-  #  print "            HIGH LOW" + " " + str(clkState) + " " + str(dtState)
+  #  print("            HIGH LOW" + " " + str(clkState) + " " + str(dtState))
  
   if APIN != LastAPIN:
     if BPIN != APIN:
@@ -77,7 +77,7 @@ while True:
       
     if volumecnt < 0: volumecnt = 0  
     if volumecnt > 100: volumecnt = 100
-    #print volumecnt
+    #print(volumecnt)
     os.system("mpc volume " + str(volumecnt))
   LastAPIN = APIN
   #time.sleep(0.05)    
@@ -97,7 +97,7 @@ while True:
       
     if volumecnt < 0: volumecnt = 0  
     if volumecnt > 100: volumecnt = 100
-    #print volumecnt
+    #print(volumecnt)
     os.system("mpc volume " + str(volumecnt))
   LastAPIN2 = APIN2
   #time.sleep(0.05)    
@@ -113,12 +113,12 @@ while True:
       global resetvol
       resetvol = mpcvol
       os.system("mpc volume 0")  
-      print "Volume Muted"  
+      print("Volume Muted")  
       time.sleep(0.5)
     else:
       resetvol == 95
       os.system("mpc volume " + str(resetvol))
-      print "Reset to previous: Volume " + str(resetvol) + "%"
+      print("Reset to previous: Volume " + str(resetvol) + "%")
       time.sleep(0.5)
 
 #################### Rotary 2 - Button ####################
@@ -132,10 +132,10 @@ while True:
       global resetvol2
       resetvol2 = mpcvol2
       os.system("mpc volume 0")  
-      print "Volume Muted"  
+      print("Volume Muted") 
       time.sleep(0.5)
     else:
       resetvol2 == 95
       os.system("mpc volume " + str(resetvol2))
-      print "Reset to previous: Volume " + str(resetvol2) + "%"
+      print("Reset to previous: Volume " + str(resetvol2) + "%")
       time.sleep(0.5)      

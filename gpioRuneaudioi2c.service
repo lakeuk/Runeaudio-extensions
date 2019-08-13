@@ -6,7 +6,7 @@ Description=i2c Runeaudio button control
 After=network.target
 
 [Service]
-ExecStart=/usr/bin/python2 /home/myapp/buttons/i2c_gpio_buttons_interrupt.py
+ExecStart=/usr/bin/python /home/myapp/buttons/i2c_gpio_buttons_interrupt.py
 ExecReload=/usr/bin/kill -HUP $MAINPID
 KillMode=process
 Restart=always

@@ -1,7 +1,7 @@
-# Store in - /var/www/command
-# Script name - gpioRuneaudioi2c.py
+# Store in - /home/myapp/buttons
+# Script name - i2c_gpio_buttons_interrupt.py
 
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 
 import time
 #from time import sleep
@@ -37,79 +37,79 @@ def buttonpress(channel):
   pins2 = b.read_byte(IOSET2) 
   pins3 = b.read_byte(IOSET3)   
   if pins1 == 0xfe:
-    print "Reboot"
+    print("Reboot")
     os.system("shutdown -r now")    
   if pins1 == 0xfd:
-    print "Shutdown"
+    print("Shutdown")
     os.system("shutdown -h now")     
   if pins1 == 0xfb:
+    print("Volume Up Pressed+")  
     os.system("mpc volume +1")  
-    print "Volume Up Pressed+"
     time.sleep(0.5)    
   if pins1 == 0xf7:
-    print "Volume Down Pressed"
+    print("Volume Down Pressed-")
     os.system("mpc volume -1")
     time.sleep(0.5)    
   if pins1 == 0xef:
-    print "Next Station or Track Pressed"
+    print("Next Station or Track Pressed")
     os.system("mpc next")  
     time.sleep(0.3)
   if pins1 == 0xdf:
-    print "Previous Station or Track Pressed"
+    print("Previous Station or Track Pressed")
     os.system("mpc prev") 
     time.sleep(0.3)
   if pins1 == 0xbf:
-    print "Play Pause Toggled"
+    print("Play Pause Toggled")
     os.system("mpc toggle") 
     time.sleep(0.2)
   if pins1 == 0x7f:
-    print "Stop"
+    print("Stop")
     os.system("mpc stop")
 
   if pins2 == 0xfe:
-    print "Station Preset 10 Pressed"
+    print("Station Preset 10 Pressed")
     os.system("mpc clear")  
     os.system("mpc load 'Radio Preset'")
     os.system("mpc play 10") 
     time.sleep(0.5)
   if pins2 == 0xfd:
-    print "Station Preset 9 Pressed"
+    print("Station Preset 9 Pressed")
     os.system("mpc clear")  
     os.system("mpc load 'Radio Preset'")
     os.system("mpc play 9") 
     time.sleep(0.5)
   if pins2 == 0xfb:
-    print "Station Preset 8 Pressed"
+    print("Station Preset 8 Pressed")
     os.system("mpc clear")  
     os.system("mpc load 'Radio Preset'")
     os.system("mpc play 8") 
     time.sleep(0.5)
   if pins2 == 0xf7:
-    print "Station Preset 6 Pressed"
+    print("Station Preset 6 Pressed")
     os.system("mpc clear")  
     os.system("mpc load 'Radio Preset'")
     os.system("mpc play 6") 
     time.sleep(0.5)
   if pins2 == 0xef:
-    print "Station Preset 4 Pressed"
+    print("Station Preset 4 Pressed")
     os.system("mpc clear")  
     os.system("mpc load 'Radio Preset'")
     os.system("mpc play 4") 
     time.sleep(0.5)
   if pins2 == 0xdf:
-    print "Station Preset 3 Pressed"
+    print("Station Preset 3 Pressed")
     os.system("mpc clear")  
     os.system("mpc load 'Radio Preset'")
     os.system("mpc play 3") 
     time.sleep(0.5)
   if pins2 == 0xbf:
-    print "Station Preset 2 Pressed"
+    print("Station Preset 2 Pressed")
     os.system("mpc clear")  
     os.system("mpc load 'Radio Preset'")
     os.system("mpc play 2") 
     time.sleep(0.5)
   if pins2 == 0x7f:
-    print "Station Preset 1 Pressed"
+    print("Station Preset 1 Pressed")
     os.system("mpc clear")  
     os.system("mpc load 'Radio Preset'")
     os.system("mpc play 1") 
@@ -117,19 +117,19 @@ def buttonpress(channel):
 
 #  if pins3 == 0xfe:
 #    #os.system("mpc volume 0")  
-#    #print "Volume Muted" 
+#    #print("Volume Muted") 
 #    time.sleep(0.5)
 #  if pins3 == 0xfd:
 #    #os.system("mpc volume 0")  
-#    #print "Volume Muted"  
+#    #print("Volume Muted")  
 #    time.sleep(0.5)
 #  if pins3 == 0xfb: #RotaryButton
 #    os.system("mpc volume 90")  
-#    print "Volume 90%"    
+#    print("Volume 90%")    
 #    time.sleep(0.5)
 #  if pins3 == 0xf7:
 #    #os.system("mpc volume 0")  
-#    #print "Volume Muted" 
+#    #print("Volume Muted") 
 #    time.sleep(0.5)
 #  if pins3 == 0xef:
 #    #os.system("mpc volume 0") 
@@ -148,19 +148,19 @@ def buttonpress(channel):
 #      global resetvol
 #      resetvol = mpcvol
 #      os.system("mpc volume 0")  
-#      print "Volume Muted"  
+#      print("Volume Muted")  
 #      time.sleep(0.5)
 #    else:
 #      resetvol == 95
 #      os.system("mpc volume " + str(resetvol))
-#      print "Reset to previous: Volume " + str(resetvol) + "%"
+#      print("Reset to previous: Volume " + str(resetvol) + "%")
 #      time.sleep(0.5)      
 #  if pins3 == 0x7f:
 #    time.sleep(0.5)
    
-  #print "%02x" % pins1 
-  #print "%02x" % pins2  
-  #print "%02x" % pins3
+  #print("%02x" % pins1) 
+  #print("%02x" % pins2)  
+  #print("%02x" % pins3)
   #time.sleep(0.5)
 
 

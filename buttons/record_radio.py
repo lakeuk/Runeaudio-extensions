@@ -1,7 +1,7 @@
-# Store in - /var/www/command
-# Script name - *.py
+# Store in - /home/myapp/buttons
+# Script name - record_radio.py
 
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 
 import sys
 import os
