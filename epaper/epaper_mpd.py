@@ -172,15 +172,22 @@ def main():
           #drawbmpPart('default')
           drawbmpFull('default')                    
       laststate = 'play'                  
-    else:                 # file
-      print('Title = ' + title)
-      print('Artist = ' + artist)
+    #else:                 # file
+      #print('Title = ' + title)
+      #print('Artist = ' + artist)
 
     if(state == 'stop'):
-      print('State ' + state)
-      drawbmpFull('blank')        
-      #drawbmpPart('blank')                
-      laststate = 'stop'
+      time.sleep(0.5) # support button radiopreset change (as playlist is clear and reloaded, triggering a STOP)
+      try:
+        statenow = client.status()['state']
+      except KeyError:
+        state = ''
+      print('State: ' + state + ' - statenow: ' + statenow)
+      if(statenow == 'stop'): # confirms proper STOP and not a button playlist change
+        print('statenow stop')
+        drawbmpFull('blank')
+        #drawbmpPart('blank')
+        laststate = 'stop'
 
     #if (state[0] == 'playlist'):
     #  print('the current playlist has been modified')
