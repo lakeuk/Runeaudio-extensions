@@ -183,7 +183,7 @@ def main():
       except KeyError:
         state = ''
       print('State: ' + state + ' - statenow: ' + statenow)
-      if(statenow == 'stop'): # confirms proper STOP and not a button playlist change
+      if(statenow == 'stop' and laststate != 'stop'): # confirms proper STOP and not a button playlist change
         print('statenow stop')
         drawbmpFull('blank')
         #drawbmpPart('blank')
