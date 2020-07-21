@@ -9,167 +9,70 @@ import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BCM)
 import smbus2 
 import os
-import subprocess
 
-#variables
-#global mpcvol,resetvol,bytempcvol,cmd
+# open the bus (0 -- original Pi, 1 -- Rev 2 Pi)
+b=smbus2.SMBus(1)
 
 # i2c address of each PCF8574 
 IOSET1=0x20 
 IOSET2=0x21
 IOSET3=0x22
 
-# open the bus (0 -- original Pi, 1 -- Rev 2 Pi) 
-b=smbus2.SMBus(1) 
-
 # make certain the pins are set high so they can be used as inputs 
 b.write_byte(IOSET1, 0xff) 
 b.write_byte(IOSET2, 0xff) 
 b.write_byte(IOSET3, 0xff)
 
-# Interrupt input pin
-GPIO.setup(26, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-
-############# SUB buttonpress #############
+def execCmd(action, cmdlist):
+  print(action)
+  for cmd in cmdlist:
+    os.system(cmd)
+  time.sleep(0.2)
 
 def buttonpress(channel):
   pins1 = b.read_byte(IOSET1) 
   pins2 = b.read_byte(IOSET2) 
-  pins3 = b.read_byte(IOSET3)   
-  if pins1 == 0xfe:
-    print("Reboot")
-    os.system("shutdown -r now")    
-  if pins1 == 0xfd:
-    print("Shutdown")
-    os.system("shutdown -h now")     
-  if pins1 == 0xfb:
-    print("Volume Up Pressed+")  
-    os.system("mpc volume +1")  
-    time.sleep(0.5)    
-  if pins1 == 0xf7:
-    print("Volume Down Pressed-")
-    os.system("mpc volume -1")
-    time.sleep(0.5)    
-  if pins1 == 0xef:
-    print("Next Station or Track Pressed")
-    os.system("mpc next")  
-    time.sleep(0.3)
-  if pins1 == 0xdf:
-    print("Previous Station or Track Pressed")
-    os.system("mpc prev") 
-    time.sleep(0.3)
-  if pins1 == 0xbf:
-    print("Play Pause Toggled")
-    os.system("mpc toggle") 
-    time.sleep(0.2)
-  if pins1 == 0x7f:
-    print("Stop")
-    os.system("mpc stop")
+  pins3 = b.read_byte(IOSET3)
 
-  if pins2 == 0xfe:
-    print("Station Preset 10 Pressed")
-    os.system("mpc clear")  
-    os.system("mpc load 'Radio Preset'")
-    os.system("mpc play 10") 
-    time.sleep(0.5)
-  if pins2 == 0xfd:
-    print("Station Preset 9 Pressed")
-    os.system("mpc clear")  
-    os.system("mpc load 'Radio Preset'")
-    os.system("mpc play 9") 
-    time.sleep(0.5)
-  if pins2 == 0xfb:
-    print("Station Preset 8 Pressed")
-    os.system("mpc clear")  
-    os.system("mpc load 'Radio Preset'")
-    os.system("mpc play 8") 
-    time.sleep(0.5)
-  if pins2 == 0xf7:
-    print("Station Preset 6 Pressed")
-    os.system("mpc clear")  
-    os.system("mpc load 'Radio Preset'")
-    os.system("mpc play 6") 
-    time.sleep(0.5)
-  if pins2 == 0xef:
-    print("Station Preset 4 Pressed")
-    os.system("mpc clear")  
-    os.system("mpc load 'Radio Preset'")
-    os.system("mpc play 4") 
-    time.sleep(0.5)
-  if pins2 == 0xdf:
-    print("Station Preset 3 Pressed")
-    os.system("mpc clear")  
-    os.system("mpc load 'Radio Preset'")
-    os.system("mpc play 3") 
-    time.sleep(0.5)
-  if pins2 == 0xbf:
-    print("Station Preset 2 Pressed")
-    os.system("mpc clear")  
-    os.system("mpc load 'Radio Preset'")
-    os.system("mpc play 2") 
-    time.sleep(0.5)
-  if pins2 == 0x7f:
-    print("Station Preset 1 Pressed")
-    os.system("mpc clear")  
-    os.system("mpc load 'Radio Preset'")
-    os.system("mpc play 1") 
-    time.sleep(0.5)
+  execCmd('Reboot', ["shutdown -r now"]) if pins1 == 0xfe else False
+  execCmd('Shutdown', ["shutdown -h now"]) if pins1 == 0xfd else False
+  execCmd('Volume Up Pressed+', ["mpc volume +1"]) if pins1 == 0xfb else False
+  execCmd('Volume Down Pressed-', ["mpc volume -1"]) if pins1 == 0xf7 else False
+  execCmd('Next Station or Track Pressed', ["mpc next"]) if pins1 == 0xef else False
+  execCmd('Previous Station or Track Pressed', ["mpc prev"]) if pins1 == 0xdf else False
+  execCmd('Play Pause Toggled', ["mpc toggle"]) if pins1 == 0xbf else False
+  execCmd('Stop', ["mpc stop"]) if pins1 == 0x7f else False
 
-#  if pins3 == 0xfe:
-#    #os.system("mpc volume 0")  
-#    #print("Volume Muted") 
-#    time.sleep(0.5)
-#  if pins3 == 0xfd:
-#    #os.system("mpc volume 0")  
-#    #print("Volume Muted")  
-#    time.sleep(0.5)
-#  if pins3 == 0xfb: #RotaryButton
-#    os.system("mpc volume 90")  
-#    print("Volume 90%")    
-#    time.sleep(0.5)
-#  if pins3 == 0xf7:
-#    #os.system("mpc volume 0")  
-#    #print("Volume Muted") 
-#    time.sleep(0.5)
-#  if pins3 == 0xef:
-#    #os.system("mpc volume 0") 
-#    os.system("mpc volume -1")  
-#    time.sleep(0.01)    
-#  if pins3 == 0xdf:
-#    #os.system("mpc volume 0")  
-#    os.system("mpc volume +1") 
-#    time.sleep(0.01)    
-#  if pins3 == 0xbf: #RotaryButton
-#    cmd = subprocess.Popen("mpc volume",shell=True, stdout=subprocess.PIPE)
-#    bytempcvol, err = cmd.communicate()  
-#    mpcvol = bytempcvol.decode()
-#    mpcvol = int(mpcvol.replace("volume:","").replace(" ","").split('%')[0])
-#    if mpcvol > 0:
-#      global resetvol
-#      resetvol = mpcvol
-#      os.system("mpc volume 0")  
-#      print("Volume Muted")  
-#      time.sleep(0.5)
-#    else:
-#      resetvol == 95
-#      os.system("mpc volume " + str(resetvol))
-#      print("Reset to previous: Volume " + str(resetvol) + "%")
-#      time.sleep(0.5)      
-#  if pins3 == 0x7f:
-#    time.sleep(0.5)
-   
+  execCmd('Station Preset 10 Pressed', ["mpc clear", "mpc load 'Radio Preset'", "mpc play 10"]) if pins2 == 0xfe else False
+  execCmd('Station Preset 9 Pressed', ["mpc clear", "mpc load 'Radio Preset'", "mpc play 9"]) if pins2 == 0xfd else False
+  execCmd('Station Preset 8 Pressed', ["mpc clear", "mpc load 'Radio Preset'", "mpc play 8"]) if pins2 == 0xfb else False
+  execCmd('Station Preset 6 Pressed', ["mpc clear", "mpc load 'Radio Preset'", "mpc play 6"]) if pins2 == 0xf7 else False
+  execCmd('Station Preset 4 Pressed', ["mpc clear", "mpc load 'Radio Preset'", "mpc play 4"]) if pins2 == 0xef else False
+  execCmd('Station Preset 3 Pressed', ["mpc clear", "mpc load 'Radio Preset'", "mpc play 3"]) if pins2 == 0xdf else False
+  execCmd('Station Preset 2 Pressed', ["mpc clear", "mpc load 'Radio Preset'", "mpc play 2"]) if pins2 == 0xbf else False
+  execCmd('Station Preset 1 Pressed', ["mpc clear", "mpc load 'Radio Preset'", "mpc play 1"]) if pins2 == 0x7f else False
+
+  #execCmd('Station Preset 10 Pressed', ["mpc clear", "mpc load 'Radio Preset'", "mpc play 10"]) if pins3 == 0xfe else False
+  #execCmd('Station Preset 9 Pressed', ["mpc clear", "mpc load 'Radio Preset'", "mpc play 9"]) if pins3 == 0xfd else False
+  #execCmd('Station Preset 8 Pressed', ["mpc clear", "mpc load 'Radio Preset'", "mpc play 8"]) if pins3 == 0xfb else False
+  #execCmd('Station Preset 6 Pressed', ["mpc clear", "mpc load 'Radio Preset'", "mpc play 6"]) if pins3 == 0xf7 else False
+  #execCmd('Station Preset 4 Pressed', ["mpc clear", "mpc load 'Radio Preset'", "mpc play 4"]) if pins3 == 0xef else False
+  #execCmd('Station Preset 3 Pressed', ["mpc clear", "mpc load 'Radio Preset'", "mpc play 3"]) if pins3 == 0xdf else False
+  #execCmd('Station Preset 2 Pressed', ["mpc clear", "mpc load 'Radio Preset'", "mpc play 2"]) if pins3 == 0xbf else False
+  #execCmd('Station Preset 1 Pressed', ["mpc clear", "mpc load 'Radio Preset'", "mpc play 1"]) if pins3 == 0x7f else False
+
   #print("%02x" % pins1) 
   #print("%02x" % pins2)  
   #print("%02x" % pins3)
-  #time.sleep(0.5)
-
-
-
 
 ############# MAIN #############
 
-#GPIO.add_event_detect(26, GPIO.FALLING, callback=buttonpress, bouncetime=300)
+# Set state for interrupt input pin
+GPIO.setup(26, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+
+# Detect interrupt activation
 GPIO.add_event_detect(26, GPIO.FALLING, callback=buttonpress)
+#GPIO.add_event_detect(26, GPIO.FALLING, callback=buttonpress, bouncetime=300)
 
 while True:
   time.sleep(10)
