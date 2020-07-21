@@ -4,7 +4,6 @@
 #!/usr/bin/env python3
 
 import time
-#from time import sleep
 import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BCM)
 import smbus2 
