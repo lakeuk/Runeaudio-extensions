@@ -1,0 +1,23 @@
+# Store in - /usr/lib/systemd/system/
+# Script name - oledRuneaudio.service
+
+[Unit]
+Description=oled displays station and volume
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python /home/myapp/oled/oled_station_volume.py
+ExecReload=/usr/bin/kill -HUP $MAINPID
+KillMode=process
+Restart=always
+RestartSec=0
+StartLimitInterval=30000
+StartLimitBurst=20000
+
+[Install]
+WantedBy=multi-user.target
+
+
+# Notes
+# RestartSec=1   # set to 1sec, 
+# https://www.freedesktop.org/software/systemd/man/systemd.service.html

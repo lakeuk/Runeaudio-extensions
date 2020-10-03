@@ -49,23 +49,19 @@ def drawbmpPart(imagename):
   epd.init(epd.lut_partial_update) 
   epd.Clear(0xFF)  
   image = Image.open(pathbmp + imagename + '.bmp')
-  image = image.transpose(Image.ROTATE_90)  
-  epd.display(epd.getbuffer(image))   
+  image = image.transpose(Image.ROTATE_90)
+  epd.display(epd.getbuffer(image))
   epd.sleep()
 ## epaper functions end
 
 HOST = 'localhost'
 PORT = '6600'
 PASSWORD = False
-##
 CON_ID = {'host':HOST, 'port':PORT}
-##  
 
 ## Some functions
 def mpdConnect(client, con_id):
-  """
-  Simple wrapper to connect MPD.
-  """
+  """Simple wrapper to connect MPD."""
   try:
     client.connect(**con_id)
   except SocketError:
@@ -73,9 +69,7 @@ def mpdConnect(client, con_id):
   return True
 
 def mpdAuth(client, secret):
-  """
-  Authenticate
-  """
+  """Authenticate"""
   try:
     client.password(secret)
   except CommandError:
@@ -104,8 +98,8 @@ def main():
   laststation = 0
   laststate = 0
 
-  while(1):
 
+  while(1):
     client.send_idle()
     state = client.fetch_idle()
 
@@ -114,10 +108,9 @@ def main():
       time.sleep(0.2)
 
     if (state[0] == 'player'):
-      time.sleep(0.2)        
+      time.sleep(0.2)
 
     try:
-      #station = client.currentsong()['name']
       station_url = subprocess.check_output("mpc -f %file% current", stderr=subprocess.STDOUT, shell=True) # http://mystreamurl/;?station_name=MY_STATION_NAME
       station_url = station_url.decode('ISO-8859-1') # Resolves::TypeError: cannot use a string pattern on a bytes-like object
       station = re.findall(r'\?station_name=(.*)', station_url)  # ['MY_STATION_NAME']
@@ -125,7 +118,6 @@ def main():
         station = station[0].replace('_', ' ')  # MY STATION NAME
       else:
         station = ''
-      #print(station)
     except KeyError:
       station = ''
 
@@ -134,47 +126,23 @@ def main():
     except KeyError:
       state = ''
 
-    try:
-      title = client.currentsong()['title']
-    except KeyError:
-      title = ''
-
-    try:
-      artist = client.currentsong()['artist']
-    except KeyError:
-      artist = ''
-
     if(station != ''):    # webradio
-      #print('Station = ' + station)
       if laststation != station:
-        #print(station)
         if station in arrbmp:
           print(station + ' - logo available')
-          #epaperReset()
-          #drawbmpPart(station)  
           drawbmpFull(station)
         else:
-          print(station + ' - no logo available')                  
-          #epaperReset()                    
-          #drawbmpPart('default')
-          drawbmpFull('default')                    
-      #print('Title = ' + title)
+          print(station + ' - no logo available')
+          drawbmpFull('default')
         laststation = station
       elif(laststate == 'stop' and state == 'play'):
         if station in arrbmp:
           print(station + ' - logo available - stop-play')
-          #epaperReset()
-          #drawbmpPart(station)   
           drawbmpFull(station)
         else:
-          print(station + ' - no logo available - stop-play')                  
-          #epaperReset()
-          #drawbmpPart('default')
-          drawbmpFull('default')                    
-      laststate = 'play'                  
-    #else:                 # file
-      #print('Title = ' + title)
-      #print('Artist = ' + artist)
+          print(station + ' - no logo available - stop-play')
+          drawbmpFull('default')
+      laststate = 'play'
 
     if(state == 'stop'):
       time.sleep(0.5) # support button radiopreset change (as playlist is clear and reloaded, triggering a STOP)
@@ -186,61 +154,13 @@ def main():
       if(statenow == 'stop' and laststate != 'stop'): # confirms proper STOP and not a button playlist change
         print('statenow stop')
         drawbmpFull('blank')
-        #drawbmpPart('blank')
         laststate = 'stop'
-
-    #if (state[0] == 'playlist'):
-    #  print('the current playlist has been modified')
-
-    #if (state[0] == 'database'): 
-    #  print('the song database has been modified after update')
-
-    #if (state[0] == 'update'): 
-    #  print('a database update has started or finished. If the database was modified during the update, the database event is also emitted.')
-
-    #if (state[0] == 'stored_playlist'): 
-    #  print('a stored playlist has been modified, renamed, created or deleted')
-
-    #if (state[0] == 'output'): 
-    #  print('an audio output has been enabled or disabled')
-
-    #if (state[0] == 'options'): 
-    #  print('options like repeat, random, crossfade, replay gain')
-
-    #if (state[0] == 'sticker'): 
-    #  print('the sticker database has been modified.')
 
   ## disconnect
   client.disconnect()
   print("end of script - client disconnected")
   sys.exit(0)
 
-def test():
-  #try:
-    epaperReset()
-    print("step 1")
-    epaperReset()
-    print("step 2")    
-    epaperReset()
-    print("step 3")    
-    drawbmpPart('BBC Radio 1')
-    print("step 4")    
-    time.sleep(10)  
-    epaperReset()
-    print("step 5")    
-    drawbmpPart('BBC Radio 2')
-    print("step 6")    
-    time.sleep(2)  
-
-  #except IOError as e:
-  #  logging.info(e)
-
-  #except KeyboardInterrupt:    
-  #  logging.info("ctrl + c:")
-  #  epd2in9.epdconfig.module_exit()
-  #  exit()
-
 # Script starts here
 if __name__ == "__main__":
   main()
-  #test()

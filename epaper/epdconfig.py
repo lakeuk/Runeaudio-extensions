@@ -53,7 +53,7 @@ class RaspberryPi:
         self.GPIO.output(pin, value)
 
     def digital_read(self, pin):
-        return self.GPIO.input(self.BUSY_PIN)
+        return self.GPIO.input(pin)
 
     def delay_ms(self, delaytime):
         time.sleep(delaytime / 1000.0)
@@ -73,14 +73,15 @@ class RaspberryPi:
         return 0
 
     def module_exit(self):
-        #logging.debug("spi end")
-        #self.SPI.close()
+        logging.debug("spi end")
+        self.SPI.close()
 
         logging.debug("close 5V, Module enters 0 power consumption ...")
         self.GPIO.output(self.RST_PIN, 0)
         self.GPIO.output(self.DC_PIN, 0)
 
         self.GPIO.cleanup()
+
 
 class JetsonNano:
     # Pin definition

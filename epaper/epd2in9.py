@@ -28,7 +28,7 @@
 #
 
 import logging
-import epdconfig  #was--> #from . import epdconfig
+import epdconfig
 
 # Display resolution
 EPD_WIDTH       = 128
@@ -196,6 +196,7 @@ class EPD:
         self.send_command(0x10) # DEEP_SLEEP_MODE
         self.send_data(0x01)
         
+    def Dev_exit(self):
         epdconfig.module_exit()
 ### END OF FILE ###
 

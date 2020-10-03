@@ -2,7 +2,7 @@
 # Script name - gpioRuneaudioi2cRotary.service
 
 [Unit]
-Description=i2c Runeaudio button control
+Description=i2c Runeaudio rotary button control
 After=network.target
 
 [Service]
