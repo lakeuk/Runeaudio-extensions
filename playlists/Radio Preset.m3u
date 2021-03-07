@@ -3,25 +3,25 @@
 http://media-the.musicradio.com:80/LBCUK?station_name=LBC_UK
 
 #EXTINF:2,BBC Radio 1
-http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio1_mf_p?station_name=BBC_Radio_1
+http://stream.live.vc.bbcmedia.co.uk/bbc_radio_one?station_name=BBC_Radio_1
 
 #EXTINF:3,BBC Radio 2
-http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio2_mf_p?station_name=BBC_Radio_2
+http://stream.live.vc.bbcmedia.co.uk/bbc_radio_two?station_name=BBC_Radio_2
 
 #EXTINF:4,BBC Radio 4 FM
-http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio4fm_mf_p?station_name=BBC_Radio_4_FM
+http://stream.live.vc.bbcmedia.co.uk/bbc_radio_fourfm?station_name=BBC_Radio_4_FM
 
 #EXTINF:5,BBC Radio 4 Extra
-http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio4extra_mf_q?station_name=BBC_Radio_4_Extra
+http://stream.live.vc.bbcmedia.co.uk/bbc_radio_four_extra?station_name=BBC_Radio_4_Extra
 
 #EXTINF:6,BBC Radio 5 Live UK
-http://open.live.bbc.co.uk/mediaselector/5/redir/version/2.0/mediaset/http-icy-mp3-a-stream/proto/http/vpid/bbc_radio_five_live?station_name=BBC_Radio_5_Live_UK
+http://stream.live.vc.bbcmedia.co.uk/bbc_radio_five_live?station_name=BBC_Radio_5_Live_UK
 
 #EXTINF:7,BBC Radio 5 Live Sports Extra UK
-http://open.live.bbc.co.uk/mediaselector/5/redir/version/2.0/mediaset/http-icy-mp3-a-stream/proto/http/vpid/bbc_radio_five_live_sports_extra?station_name=BBC_Radio_5_Live_Sports_Extra_UK
+http://stream.live.vc.bbcmedia.co.uk/bbc_radio_five_live_sports_extra?station_name=BBC_Radio_5_Live_Sports_Extra_UK
 
 #EXTINF:8,BBC 6 Music
-http://bbcmedia.ic.llnwd.net/stream/bbcmedia_6music_mf_p?station_name=BBC_6_Music
+http://stream.live.vc.bbcmedia.co.uk/bbc_6music?station_name=BBC_6_Music
 
 #EXTINF:9,Forth 1
 http://tx.planetradio.co.uk/icecast.php?i=forth1.aac?station_name=Forth_1
@@ -30,13 +30,13 @@ http://tx.planetradio.co.uk/icecast.php?i=forth1.aac?station_name=Forth_1
 http://tx.planetradio.co.uk/icecast.php?i=rock.aac?station_name=Rock_FM
 
 #EXTINF:11,BBC Radio Cumbria
-http://bbcmedia.ic.llnwd.net/stream/bbcmedia_lrcumbria_mf_p?station_name=BBC_Radio_Cumbria
+http://stream.live.vc.bbcmedia.co.uk/bbc_radio_cumbria?station_name=BBC_Radio_Cumbria
 
 #EXTINF:12,BBC Radio Lancashire
-http://bbcmedia.ic.llnwd.net/stream/bbcmedia_lrlancs_mf_p?station_name=BBC_Radio_Lancashire
+http://stream.live.vc.bbcmedia.co.uk/bbc_radio_lancashire?station_name=BBC_Radio_Lancashire
 
 #EXTINF:13,BBC Radio Manchester
-http://bbcmedia.ic.llnwd.net/stream/bbcmedia_lrmanc_mf_p?station_name=BBC_Radio_Manchester
+http://stream.live.vc.bbcmedia.co.uk/bbc_radio_manchester?station_name=BBC_Radio_Manchester
 
 #EXTINF:14,Bay Trust Radio
 http://live.audiospace.co:80/baytrustradio?station_name=Bay_Trust_Radio
@@ -114,7 +114,7 @@ http://tx.planetradio.co.uk/icecast.php?i=magicchilled.aac?station_name=Magic_Ch
 http://tx.planetradio.co.uk/icecast.php?i=heat.aac?station_name=heat_Radio
 
 #EXTINF:39,Kerrang! Radio
-http://tx.planetradio.co.uk/icecast.php?i=kerrang.aac?station_name=Kerrang_Radio
+http://tx.planetradio.co.uk/icecast.php?i=kerrang.mp3?station_name=Kerrang_Radio
 
 #EXTINF:40,The Hits
 http://tx.planetradio.co.uk/icecast.php?i=hits.aac?station_name=The_Hits
@@ -128,13 +128,10 @@ http://tx.planetradio.co.uk/icecast.php?i=magic1152m.aac?station_name=Key_2
 #EXTINF:43,Planet Rock
 http://tx.planetradio.co.uk/icecast.php?i=planetrock.aac?station_name=Planet_Rock
 
-#EXTINF:44,BBC Radio 5 Live
-http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio5live_mf_p?station_name=BBC_Radio_5_Live
-
-#EXTINF:45,Scala Radio
+#EXTINF:44,Scala Radio
 http://tx.planetradio.co.uk/icecast.php?i=scala.aac?station_name=Scala_Radio
 
-#EXTINF:46,Country Hits UK	
+#EXTINF:45,Country Hits UK	
 http://tx.planetradio.co.uk/icecast.php?i=countryhits.mp3?station_name=Country_Hits_UK
 
 #EXTINF:46,Country Hits UK	
@@ -145,3 +142,10 @@ http://stream.radioparadise.com/mp3-192?station_name=Radio_Paradise
 
 #EXTINF:48,Lake District Radio	
 https://streamer.radio.co:80/sf97bc756a/listen?station_name=Lake_District_Radio
+
+#EXTINF:49,BBC Radio 1 Xtra
+http://stream.live.vc.bbcmedia.co.uk/bbc_1xtra?station_name=BBC_Radio_1_Xtra
+
+#EXTINF:50,United DJs
+http://88.208.208.140:8208/stream?station_name=United_DJs
+
