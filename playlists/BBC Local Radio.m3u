@@ -1,9 +1,9 @@
 #EXTM3U
 #EXTINF:1,BBC Radio Cumbria
-http://bbcmedia.ic.llnwd.net/stream/bbcmedia_lrcumbria_mf_p?station_name=BBC_Radio_Cumbria
+http://stream.live.vc.bbcmedia.co.uk/bbc_radio_cumbria?station_name=BBC_Radio_Cumbria
 
 #EXTINF:2,BBC Radio Lancashire
-http://bbcmedia.ic.llnwd.net/stream/bbcmedia_lrlancs_mf_p?station_name=BBC_Radio_Lancashire
+http://stream.live.vc.bbcmedia.co.uk/bbc_radio_lancashire?station_name=BBC_Radio_Lancashire
 
 #EXTINF:3,BBC Radio Manchester
-http://bbcmedia.ic.llnwd.net/stream/bbcmedia_lrmanc_mf_p?station_name=BBC_Radio_Manchester
+http://stream.live.vc.bbcmedia.co.uk/bbc_radio_manchester?station_name=BBC_Radio_Manchester
