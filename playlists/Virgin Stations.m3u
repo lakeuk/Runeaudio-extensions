@@ -1,0 +1,13 @@
+#EXTM3U
+#EXTINF:1,Virgin Radio (128s)
+http://radio.virginradio.co.uk/stream?ref=rf&station_name=Virgin_Radio
+
+#EXTINF:2,Virgin Radio Anthems (128s)
+http://radio.virginradio.co.uk/stream-anthems?ref=rf&station_name=Virgin_Radio_Anthems
+
+#EXTINF:3,Virgin Radio Chilled (128s)
+http://radio.virginradio.co.uk/stream-chilled?ref=rf&station_name=Virgin_Radio_Chilled
+
+#EXTINF:4,Virgin Radio Groove (128s)
+http://radio.virginradio.co.uk/stream-groove?ref=rf&station_name=Virgin_Radio_Groove
+

@@ -1,0 +1,28 @@
+#EXTM3U
+#EXTINF:1,Absolute Classic Rock (112s)
+http://edge-bauerabsolute-14-gos1.sharp-stream.com/absoluteclassicrock.mp3?station_name=Absolute_Classic_Rock
+
+#EXTINF:2,Absolute Radio UK DAB (112s)
+http://edge-bauerabsolute-14-gos1.sharp-stream.com/absoluteradio.mp3?station_name=Absolute_Radio_UK_DAB
+
+#EXTINF:3,Absolute Radio 60s (112s)
+http://edge-bauerabsolute-14-gos1.sharp-stream.com/absolute60s.mp3?station_name=Absolute_Radio_60s
+
+#EXTINF:4,Absolute Radio 70s (112s)
+http://edge-bauerabsolute-14-gos1.sharp-stream.com/absolute70s.mp3?station_name=Absolute_Radio_70s
+
+#EXTINF:5,Absolute 80s (112s)
+http://edge-bauerabsolute-14-gos1.sharp-stream.com/absolute80s.mp3?station_name=Absolute_80s
+
+#EXTINF:6,Absolute Radio 90s (112s)
+http://edge-bauerabsolute-14-gos1.sharp-stream.com/absolute90s.mp3?station_name=Absolute_Radio_90s
+
+#EXTINF:7,Absolute Radio 00s (112s)
+http://edge-bauerabsolute-14-gos1.sharp-stream.com/absolute00s.mp3?station_name=Absolute_Radio_00s
+
+#EXTINF:8,Absolute Radio 10s (112s)
+http://edge-bauerabsolute-14-gos1.sharp-stream.com/absolute10s.mp3?station_name=Absolute_Radio_10s
+
+#EXTINF:9,Absolute Radio Country formerly Country Hits Radio (112s)
+http://tx.planetradio.co.uk/icecast.php?i=countryhits.mp3&station_name=Absolute_Radio_Country_formerly_Country_Hits_Radio
+
